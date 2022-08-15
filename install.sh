@@ -23,3 +23,9 @@ sudo make clean install
 
 cd ~/arch_installation/dwm_arch/slstatus
 sudo make clean install
+
+echo 'eval "$(starship init bash)"' >> ~/.bashrc
+
+echo  "Please reboot, login and start DWM with 'startx' command"
+
+sleep 5

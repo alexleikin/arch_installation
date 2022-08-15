@@ -18,6 +18,8 @@ sudo pacman -S --noconfirm alacritty  nitrogen picom  firefox pcmanfm rofi xorg 
 sed -i 's/.*ar3.*//' ~/.bashrc
 
 
+cd ~/
+
 git clone https://github.com/alexleikin/arch_installation.git
 
 cd ~/arch_installation

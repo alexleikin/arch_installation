@@ -15,6 +15,10 @@ mkdir ~/.config/gtk-3.0
 cp gtk.css ~/.config/gtk-3.0/
 
 
+iface=`ip a | grep BROADCAST | awk -F': ' '{print $2}'`
+
+sed -i "s/ens33/${iface}/" ~/arch_installation/dwm_arch/slstatus/config.h
+
 cd ~/arch_installation/dwm_arch/dmenu
 sudo make clean install
 

@@ -1,0 +1,4 @@
+chroot /chroot_dir /bin/bash -x <<'EOF'
+su -
+./startup.sh
+EOF

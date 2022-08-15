@@ -40,3 +40,9 @@ if pgrep -x picom >/dev/null
 else
    picom -f &
 fi
+
+if pgrep -x nm-applet >/dev/null
+   then :
+else
+   nm-applet -f &
+fi

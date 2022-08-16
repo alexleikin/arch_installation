@@ -13,6 +13,7 @@ sudo cp qt-fix.sh /etc/profile.d
 
 mkdir ~/.config/gtk-3.0
 cp gtk.css ~/.config/gtk-3.0/
+cp settings.ini ~/.config/gtk-3.0/
 
 
 iface=`ip a | grep BROADCAST | awk -F': ' '{print $2}'`

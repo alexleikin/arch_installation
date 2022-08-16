@@ -17,7 +17,7 @@ mkfs.fat -F 32 /dev/${disk}1
 pvcreate /dev/${disk}2
 vgcreate archlinux /dev/${disk}2
 lvcreate -L 2G archlinux -n swap
-lvcreate -L 40G archlinux -n root
+lvcreate -L 20G archlinux -n root
 mkfs.ext4 /dev/archlinux/root
 mkswap /dev/archlinux/swap
 mount /dev/archlinux/root /mnt

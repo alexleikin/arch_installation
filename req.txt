@@ -1,0 +1,4 @@
+virtualbox-guest-utils
+qemu-hw-display-virtio-gpu-gl
+virglrenderer
+mesa-utils

@@ -39,7 +39,7 @@ cp /ar3.sh /home/${user}
 chown ${user}:${user} /home/${user}/ar3.sh
 echo  "chmod +x ar3.sh && ./ar3.sh" >> /home/${user}/.bashrc
 
-echo "Exit the shell and reboot"
+echo "Wait for prompt then type exit and  reboot"
 sleep 3
 
 exit

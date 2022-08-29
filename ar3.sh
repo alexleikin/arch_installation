@@ -6,7 +6,7 @@ makepkg --noconfirm -si
 
 sleep 5
 
-yay -S --noconfirm humanity-icon-theme otf-nerd-fonts-fira-mono otf-raleway ttf-mononoki ttf-ms-fonts 
+yay -S --noconfirm humanity-icon-theme otf-nerd-fonts-fira-mono otf-raleway ttf-mononoki ttf-ms-fonts nerd-fonts-fira-code
 
 sleep 5
 

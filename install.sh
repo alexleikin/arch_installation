@@ -15,7 +15,8 @@ mkdir ~/.config/gtk-3.0
 cp gtk.css ~/.config/gtk-3.0/
 cp .imwheelrc ~/.config
 
-cp -r fonts  ~/.local/share
+mkdir ~/.local/share/fonts
+cp  fonts/*  ~/.local/share/fonts
 
 iface=`ip a | grep BROADCAST | awk -F': ' '{print $2}'`
 

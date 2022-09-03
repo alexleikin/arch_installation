@@ -41,7 +41,7 @@ autocmd FileType yaml setlocal ts=2 sts=2 sw=2 nu expandtab
 " Draw the indentLine only for Yaml files
 let g:indentLine_color_term = 255
 let g:indentLine_fileTypeExclude = ['help', 'man', 'text', 'txt', '']
-autocmd Filetype yaml,python let g:indentLine_char = '⦙'
+autocmd Filetype yaml,python let g:indentLine_char = '|'
 
 " Execute Python script
 autocmd FileType python map <buffer> <F9> :w<CR>:exec '!python3' shellescape(@%, 1)<CR>

@@ -24,22 +24,11 @@ Plug 'itchyny/lightline.vim'
 
 call plug#end()
 
-
-" Setup the colorscheme
-" colorscheme ayu
-" colorscheme ayu
-
 set termguicolors
 let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
 let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+
 colorscheme nord
-
-
-" Call NERDTree 
-nmap <F6> :NERDTreeToggle<CR>
-
-" Open the new file and a new Tab
-let NERDTreeCustomOpenArgs={'file':{'where': 't'}}
 
 " Map moving between tabs
 nnoremap <C-l> gt
@@ -53,12 +42,6 @@ autocmd FileType yaml setlocal ts=2 sts=2 sw=2 nu expandtab
 let g:indentLine_color_term = 255
 let g:indentLine_fileTypeExclude = ['help', 'man', 'text', 'txt', '']
 autocmd Filetype yaml,python let g:indentLine_char = '⦙'
-
-" Setting for ALE
-let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
-let g:ale_sign_error = '✘'
-let g:ale_sign_warning = '⚠'
-let g:ale_lint_on_text_changed = 'never'
 
 " Execute Python script
 autocmd FileType python map <buffer> <F9> :w<CR>:exec '!python3' shellescape(@%, 1)<CR>

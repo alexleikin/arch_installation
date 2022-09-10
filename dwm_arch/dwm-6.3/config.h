@@ -35,13 +35,13 @@ typedef struct {
        const void *cmd;
 } Sp;
 //const char *spcmd1[] = {"st", "-n", "spterm", "-g", "120x34", NULL };
-const char *spcmd1[] = {"alacritty", "--class", "spterm", "--config-file", "/home/alex/.config/alacritty/alacritty-scratch.yml", NULL };
-const char *spcmd2[] = {"st", "-n", "spfm", "-g", "144x41", "-e", "ranger", NULL };
-const char *spcmd3[] = {"keepassxc", NULL };
+const char *spcmd1[] = {"alacritty", "--class", "spterm1", "--config-file", "/home/alex/.config/alacritty/alacritty-scratch.yml", NULL };
+const char *spcmd2[] = {"alacritty", "--class", "spterm2", "--config-file", "/home/alex/.config/alacritty/alacritty-scratch.yml", "-e", "ranger", NULL };
+const char *spcmd3[] = {"st", "-n", "procm", "-g", "144x41", "-e", "htop", NULL };
 static Sp scratchpads[] = {
        /* name          cmd  */
-       {"spterm",      spcmd1},
-       {"spranger",    spcmd2},
+       {"spterm1",      spcmd1},
+       {"spterm2",    spcmd2},
        {"keepassxc",   spcmd3},
 };
 
@@ -59,13 +59,14 @@ static const Rule rules[] = {
         { "vlc",                NULL,       NULL,       1 << 5,            1,           -1 },
         { "Thunar",             NULL,       NULL,       1 << 4,            0,           -1 },
         { "TelegramDesktop",    NULL,       NULL,       1 << 3,            0,           -1 },
-        { "Virt-manager",       NULL,       NULL,       1 << 8,            0,           -1 },
+        { "VirtualBox Manager", NULL,       NULL,       1 << 8,            0,           -1 },
         { "zoom",               NULL,       NULL,       1 << 9,            0,           -1 },
-        { "Pcmanfm",            NULL,       NULL,       1 << 4,            0,           -1 },  
+        { "Pcmanfm",            NULL,       NULL,       1 << 4,            0,           -1 },
+        { "Gimp",               NULL,       NULL,       0,                 1,           -1 },
         { "firefox",            NULL,       NULL,       1 << 2,            0,           -1 },
-	{ NULL,                 "spterm",   NULL,       SPTAG(0),          1,           -1 },
-        { NULL,                 "spfm",     NULL,       SPTAG(1),          1,           -1 },
-        { NULL,                 "keepassxc", NULL,      SPTAG(2),          0,           -1 },
+        { NULL,                 "spterm1",  NULL,       SPTAG(0),          1,           -1 },
+        { NULL,                 "spterm2",  NULL,       SPTAG(1),          1,           -1 },
+        { NULL,                 "kpassxc",  NULL,       SPTAG(2),          0,           -1 },
 };
 
 /* layout(s) */
@@ -104,6 +105,7 @@ static const Layout layouts[] = {
 
 /* key definitions */
 #define MODKEY Mod4Mask
+#define MODKEY1 Mod1Mask
 #define TAGKEYS(KEY,TAG) \
 	{ MODKEY,                       KEY,      view,           {.ui = 1 << TAG} }, \
 	{ MODKEY|ControlMask,           KEY,      toggleview,     {.ui = 1 << TAG} }, \
@@ -169,9 +171,9 @@ static Key keys[] = {
 	{ MODKEY,                       XK_period, focusmon,       {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } },
 	{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
-        { MODKEY,                               XK_y,      togglescratch,  {.ui = 0 } },
-        { MODKEY,                               XK_u,      togglescratch,  {.ui = 1 } },
-        { MODKEY,                               XK_x,      togglescratch,  {.ui = 2 } },
+        { MODKEY,                       XK_y,      togglescratch,  {.ui = 0 } },
+        { MODKEY1,                      XK_y,      togglescratch,  {.ui = 1 } },
+        { MODKEY,                       XK_x,      togglescratch,  {.ui = 2 } },
         { MODKEY,                       XK_n,      shiftview,      {.i = +1 } },
         { MODKEY|ShiftMask,             XK_n,      shiftview,      {.i = -1 } },
         { MODKEY|ControlMask,           XK_comma,  cyclelayout,    {.i = -1 } },
@@ -198,7 +200,7 @@ static Button buttons[] = {
 	{ ClkStatusText,        0,              Button2,        spawn,          {.v = termcmd } },
 	{ ClkClientWin,         MODKEY,         Button1,        movemouse,      {0} },
 	{ ClkClientWin,         MODKEY,         Button2,        togglefloating, {0} },
-	{ ClkClientWin,         MODKEY,         Button1,        resizemouse,    {0} },
+	{ ClkClientWin,         MODKEY,         Button3,        resizemouse,    {0} },
 	{ ClkTagBar,            0,              Button1,        view,           {0} },
 	{ ClkTagBar,            0,              Button3,        toggleview,     {0} },
 	{ ClkTagBar,            MODKEY,         Button1,        tag,            {0} },

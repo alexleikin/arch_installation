@@ -10,7 +10,7 @@ yay -S --noconfirm humanity-icon-theme otf-nerd-fonts-fira-mono otf-raleway ttf-
 
 sleep 5
 
-sudo pacman -S --noconfirm alacritty  nitrogen firefox pcmanfm rofi xorg xf86-video-amdgpu arandr wget ttf-font-awesome xorg-xinit  pulseaudio pulseaudio-alsa arc-gtk-theme arc-icon-theme cantarell-fonts cifs-utils copyq dunst flameshot gvfs hidapi imwheel lxappearance pasystray pavucontrol pcmanfm alsa-utils ttf-jetbrains-mono ttf-iosevka-nerd noto-fonts-emoji starship ttf-lato picom cronie
+sudo pacman -S --noconfirm alacritty  nitrogen firefox pcmanfm rofi xorg xf86-video-amdgpu arandr wget ttf-font-awesome xorg-xinit  pulseaudio pulseaudio-alsa arc-gtk-theme arc-icon-theme cantarell-fonts cifs-utils copyq dunst flameshot gvfs hidapi imwheel lxappearance pasystray pavucontrol pcmanfm alsa-utils ttf-jetbrains-mono ttf-iosevka-nerd noto-fonts-emoji starship ttf-lato picom-jonaburg-git cronie
 
 
 

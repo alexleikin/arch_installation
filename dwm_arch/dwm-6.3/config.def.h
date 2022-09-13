@@ -3,6 +3,7 @@
 /* appearance */
 static const unsigned int borderpx  = 5;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
+static const int swallowfloating    = 0;
 static const unsigned int gappih    = 10;       /* horiz inner gap between windows */
 static const unsigned int gappiv    = 10;       /* vert inner gap between windows */
 static const unsigned int gappoh    = 12;       /* horiz outer gap between windows and screen edge */
@@ -15,7 +16,8 @@ static const int showsystray        = 1;        /* 0 means no systray */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
 static const int attachmode         = 1;        /* 0 master (default), 1 = above, 2 = aside, 3 = below, 4 = bottom */
-static const char *fonts[]          = { "Lato:regular:pixelsize=22:antialias=true:autohint=true","Iosevka Nerd Font:pixelsize=22:antialias=true:autohint=true"   };
+//static const char *fonts[]          = { "monospace:size=10" };
+static const char *fonts[]          = { "Lato:regular:pixelsize=22:antialias=true:autohint=true","Iosevka Nerd Font:pixelsize=22:antialias=true:autohint=true" };
 static const char dmenufont[]       = "monospace:size=16";
 static const char col_gray1[]       = "#222222";
 static const char col_gray2[]       = "#444444";
@@ -35,13 +37,13 @@ typedef struct {
        const void *cmd;
 } Sp;
 //const char *spcmd1[] = {"st", "-n", "spterm", "-g", "120x34", NULL };
-const char *spcmd1[] = {"alacritty", "--class", "spterm", "--config-file", "/home/alex/.config/alacritty/alacritty-scratch.yml", NULL };
-const char *spcmd2[] = {"st", "-n", "spfm", "-g", "144x41", "-e", "ranger", NULL };
+const char *spcmd1[] = {"alacritty", "--class", "spterm1", "--config-file", "/home/alex/.config/alacritty/alacritty-scratch.yml", NULL };
+const char *spcmd2[] = {"alacritty", "--class", "spterm2", "--config-file", "/home/alex/.config/alacritty/alacritty-scratch.yml", "-e", "ncmpcpp", NULL };
 const char *spcmd3[] = {"keepassxc", NULL };
 static Sp scratchpads[] = {
        /* name          cmd  */
-       {"spterm",      spcmd1},
-       {"spranger",    spcmd2},
+       {"spterm1",     spcmd1},
+       {"spterm2",     spcmd2},
        {"keepassxc",   spcmd3},
 };
 
@@ -57,16 +59,14 @@ static const Rule rules[] = {
 	 */
 	/* class      instance    title       tags mask     isfloating   monitor */
         { "vlc",                NULL,       NULL,       1 << 5,            1,           -1 },
-        { "Thunar",             NULL,       NULL,       1 << 4,            0,           -1 },
         { "TelegramDesktop",    NULL,       NULL,       1 << 3,            0,           -1 },
-        { "VirtualBox Manager", NULL,       NULL,       1 << 8,            0,           -1 },
+        { "Virt-manager",       NULL,       NULL,       1 << 8,            0,           -1 },
         { "zoom",               NULL,       NULL,       1 << 9,            0,           -1 },
-        { "Pcmanfm",            NULL,       NULL,       1 << 4,            0,           -1 },
-        { "Gimp",               NULL,       NULL,           0,                              1,                       -1 },
-        { "Firefox",  NULL,                     NULL,           1 << 8,                 0,                       -1 },
-        { NULL,           "spterm",             NULL,           SPTAG(0),               1,                       -1 },
-        { NULL,           "spfm",               NULL,           SPTAG(1),               1,                       -1 },
-        { NULL,           "keepassxc",  NULL,           SPTAG(2),               0,                       -1 },
+        { "Pcmanfm",            NULL,       NULL,       1 << 4,            1,           -1 },
+        { "firefox",            NULL,       NULL,       1 << 2,            0,           -1 },
+        { NULL,                 "spterm1",  NULL,       SPTAG(0),          1,           -1 },
+        { NULL,                 "spterm2",  NULL,       SPTAG(1),          1,           -1 },
+        { NULL,                 "keec",     NULL,       SPTAG(2),          0,           -1 },
 };
 
 /* layout(s) */
@@ -170,9 +170,9 @@ static Key keys[] = {
 	{ MODKEY,                       XK_period, focusmon,       {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } },
 	{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
-        { MODKEY,                               XK_y,      togglescratch,  {.ui = 0 } },
-        { MODKEY,                               XK_u,      togglescratch,  {.ui = 1 } },
-        { MODKEY,                               XK_x,      togglescratch,  {.ui = 2 } },
+        { MODKEY,                       XK_y,      togglescratch,  {.ui = 0 } },
+        { MODKEY,                       XK_u,      togglescratch,  {.ui = 1 } },
+        { MODKEY,                       XK_x,      togglescratch,  {.ui = 2 } },
         { MODKEY,                       XK_n,      shiftview,      {.i = +1 } },
         { MODKEY|ShiftMask,             XK_n,      shiftview,      {.i = -1 } },
         { MODKEY|ControlMask,           XK_comma,  cyclelayout,    {.i = -1 } },
@@ -199,7 +199,7 @@ static Button buttons[] = {
 	{ ClkStatusText,        0,              Button2,        spawn,          {.v = termcmd } },
 	{ ClkClientWin,         MODKEY,         Button1,        movemouse,      {0} },
 	{ ClkClientWin,         MODKEY,         Button2,        togglefloating, {0} },
-	{ ClkClientWin,         MODKEY,         Button1,        resizemouse,    {0} },
+	{ ClkClientWin,         MODKEY,         Button3,        resizemouse,    {0} },
 	{ ClkTagBar,            0,              Button1,        view,           {0} },
 	{ ClkTagBar,            0,              Button3,        toggleview,     {0} },
 	{ ClkTagBar,            MODKEY,         Button1,        tag,            {0} },

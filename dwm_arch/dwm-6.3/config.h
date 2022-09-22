@@ -67,6 +67,8 @@ static const Rule rules[] = {
         { NULL,                 "spterm1",  NULL,       SPTAG(0),          1,           -1 },
         { NULL,                 "spterm2",  NULL,       SPTAG(1),          1,           -1 },
         { NULL,                 "keec",     NULL,       SPTAG(2),          0,           -1 },
+       /* class     instance  title           tags mask  isfloating  isterminal  noswallow  monitor */
+        { "st",           NULL,     NULL,           0,         0,          1,           0,        -1  },
 };
 
 /* layout(s) */
@@ -105,6 +107,7 @@ static const Layout layouts[] = {
 
 /* key definitions */
 #define MODKEY Mod4Mask
+#define MODKEY1 Mod1Mask
 #define TAGKEYS(KEY,TAG) \
 	{ MODKEY,                       KEY,      view,           {.ui = 1 << TAG} }, \
 	{ MODKEY|ControlMask,           KEY,      toggleview,     {.ui = 1 << TAG} }, \
@@ -116,7 +119,8 @@ static const Layout layouts[] = {
 
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
-static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray5, "-sb", col_cyan, "-sf", col_gray4, NULL };
+//static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray5, "-sb", col_cyan, "-sf", col_gray4, NULL };
+static const char *dmenucmd[] = { "/home/alex/bin/rdmenu.sh", NULL };
 static const char *termcmd[]  = { "alacritty", NULL };
 
 
@@ -132,7 +136,7 @@ static Key keys[] = {
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
 	{ MODKEY|ShiftMask,             XK_j,      rotatestack,    {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_k,      rotatestack,    {.i = -1 } },
-	{ MODKEY,                       XK_i,      incnmaster,     {.i = +1 } },
+	{ MODKEY|ShiftMask,             XK_d,      incnmaster,     {.i = +1 } },
 	{ MODKEY,                       XK_d,      incnmaster,     {.i = -1 } },
 	{ MODKEY,                       XK_h,      setmfact,       {.f = -0.05} },
 	{ MODKEY,                       XK_l,      setmfact,       {.f = +0.05} },
@@ -171,7 +175,7 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } },
 	{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
         { MODKEY,                       XK_y,      togglescratch,  {.ui = 0 } },
-        { MODKEY,                       XK_u,      togglescratch,  {.ui = 1 } },
+        { MODKEY1,                      XK_y,      togglescratch,  {.ui = 1 } },
         { MODKEY,                       XK_x,      togglescratch,  {.ui = 2 } },
         { MODKEY,                       XK_n,      shiftview,      {.i = +1 } },
         { MODKEY|ShiftMask,             XK_n,      shiftview,      {.i = -1 } },

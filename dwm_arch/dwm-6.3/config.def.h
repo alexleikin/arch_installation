@@ -39,12 +39,12 @@ typedef struct {
 //const char *spcmd1[] = {"st", "-n", "spterm", "-g", "120x34", NULL };
 const char *spcmd1[] = {"alacritty", "--class", "spterm1", "--config-file", "/home/alex/.config/alacritty/alacritty-scratch.yml", NULL };
 const char *spcmd2[] = {"alacritty", "--class", "spterm2", "--config-file", "/home/alex/.config/alacritty/alacritty-scratch.yml", "-e", "ncmpcpp", NULL };
-const char *spcmd3[] = {"keepassxc", NULL };
+const char *spcmd3[] = {"qalculate-gtk", NULL };
 static Sp scratchpads[] = {
        /* name          cmd  */
        {"spterm1",     spcmd1},
        {"spterm2",     spcmd2},
-       {"keepassxc",   spcmd3},
+       {"qalculate-gtk",   spcmd3},
 };
 
 
@@ -66,7 +66,7 @@ static const Rule rules[] = {
         { "firefox",            NULL,       NULL,       1 << 2,            0,           -1 },
         { NULL,                 "spterm1",  NULL,       SPTAG(0),          1,           -1 },
         { NULL,                 "spterm2",  NULL,       SPTAG(1),          1,           -1 },
-        { NULL,                 "keec",     NULL,       SPTAG(2),          0,           -1 },
+        { NULL,                 "qalculate-gtk",     NULL,       SPTAG(2),          1,           -1 },
        /* class     instance  title           tags mask  isfloating  isterminal  noswallow  monitor */
         { "st",           NULL,     NULL,           0,         0,          1,           0,        -1  },
 };
@@ -174,9 +174,9 @@ static Key keys[] = {
 	{ MODKEY,                       XK_period, focusmon,       {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } },
 	{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
-        { MODKEY,                       XK_y,      togglescratch,  {.ui = 0 } },
-        { MODKEY1,                      XK_y,      togglescratch,  {.ui = 1 } },
-        { MODKEY,                       XK_x,      togglescratch,  {.ui = 2 } },
+        { MODKEY1,                      XK_t,      togglescratch,  {.ui = 0 } },
+        { MODKEY1,                      XK_m,      togglescratch,  {.ui = 1 } },
+        { MODKEY1,                      XK_c,      togglescratch,  {.ui = 2 } },
         { MODKEY,                       XK_n,      shiftview,      {.i = +1 } },
         { MODKEY|ShiftMask,             XK_n,      shiftview,      {.i = -1 } },
         { MODKEY|ControlMask,           XK_comma,  cyclelayout,    {.i = -1 } },
@@ -191,6 +191,7 @@ static Key keys[] = {
 	TAGKEYS(                        XK_8,                      7)
 	TAGKEYS(                        XK_9,                      8)
 	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
+	{ MODKEY|ControlMask|ShiftMask, XK_q,      quit,           {1} }, 
 };
 
 /* button definitions */

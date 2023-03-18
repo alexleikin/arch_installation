@@ -22,7 +22,7 @@ sed -i "s/ens33/${iface}/" ~/arch_installation/dwm_arch/slstatus/config.h
 cd ~/arch_installation/dwm_arch/dmenu
 sudo make clean install
 
-cd ~/arch_installation/dwm_arch/dwm-6.3
+cd ~/arch_installation/dwm_arch/dwm-6.4
 sudo make clean install
 
 cd ~/arch_installation/dwm_arch/slstatus

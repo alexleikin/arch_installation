@@ -4,6 +4,8 @@
 cd ~/arch_installation/dwm_arch/config
 
 
+cp -r bin ~/
+
 cp -r alacritty dunst dwm nitrogen picom.conf   ~/.config
 
 cp wallpaperflare.com_wallpaper.jpg ~/Downloads

@@ -1,0 +1,280 @@
+{
+  "datahub": {
+    "created": "2018-07-12T07:05:07.456651",
+    "findability": "published",
+    "flowid": "datahq/1mb-test/447",
+    "hash": "ef4829511a8f0aad49d37ee0a7aafffc",
+    "modified": "2020-09-04T15:13:03.136912",
+    "owner": "datahq",
+    "ownerid": "datahq",
+    "stats": {
+      "bytes": 7185798,
+      "rowcount": 42450
+    }
+  },
+  "id": "datahq/1mb-test",
+  "name": "1mb-test",
+  "resources": [
+    {
+      "bytes": 592,
+      "datahub": {
+        "type": "derived/report"
+      },
+      "description": "Validation report for tabular data",
+      "dpp:streamedFrom": "validation_report.json",
+      "format": "json",
+      "hash": "dce42a271899e9ead9b866592f82546c",
+      "name": "validation_report",
+      "path": "https://pkgstore.datahub.io/datahq/1mb-test/validation_report/data/dce42a271899e9ead9b866592f82546c/validation_report.json",
+      "profile": "data-resource"
+    },
+    {
+      "bytes": 1043005,
+      "datahub": {
+        "derivedFrom": [
+          "1mb-test"
+        ],
+        "type": "derived/csv"
+      },
+      "delimiter": ",",
+      "dialect": {
+        "delimiter": ",",
+        "doubleQuote": true,
+        "lineTerminator": "\r\n",
+        "quoteChar": "\"",
+        "skipInitialSpace": false
+      },
+      "dpp:streamedFrom": "https://s3.amazonaws.com/rawstore.datahub.io/920a2e7aac3c85a8a64999d6a1f5bf6b.csv",
+      "encoding": "utf-8",
+      "format": "csv",
+      "hash": "920a2e7aac3c85a8a64999d6a1f5bf6b",
+      "mediatype": "text/csv",
+      "name": "1mb-test_csv",
+      "path": "https://pkgstore.datahub.io/datahq/1mb-test/1mb-test_csv/data/920a2e7aac3c85a8a64999d6a1f5bf6b/1mb-test_csv.csv",
+      "pathType": "local",
+      "profile": "data-resource",
+      "quotechar": "\"",
+      "rowcount": 42450,
+      "schema": {
+        "fields": [
+          {
+            "format": "default",
+            "name": "Country",
+            "type": "string"
+          },
+          {
+            "format": "default",
+            "name": "Indicator",
+            "type": "string"
+          },
+          {
+            "format": "default",
+            "name": "Year",
+            "type": "year"
+          },
+          {
+            "decimalChar": ".",
+            "format": "default",
+            "groupChar": "",
+            "name": "Value",
+            "type": "number"
+          }
+        ],
+        "missingValues": [
+          ""
+        ]
+      },
+      "signed": true
+    },
+    {
+      "bytes": 3124138,
+      "datahub": {
+        "derivedFrom": [
+          "1mb-test"
+        ],
+        "type": "derived/json"
+      },
+      "delimiter": ",",
+      "dialect": {
+        "delimiter": ",",
+        "quoteChar": "\""
+      },
+      "dpp:streamedFrom": "https://s3.amazonaws.com/rawstore.datahub.io/920a2e7aac3c85a8a64999d6a1f5bf6b.csv",
+      "encoding": "utf-8",
+      "format": "json",
+      "hash": "ca5fd34861cc68b4f519b1c1e15c510e",
+      "mediatype": "text/csv",
+      "name": "1mb-test_json",
+      "path": "https://pkgstore.datahub.io/datahq/1mb-test/1mb-test_json/data/ca5fd34861cc68b4f519b1c1e15c510e/1mb-test_json.json",
+      "pathType": "local",
+      "profile": "data-resource",
+      "quotechar": "\"",
+      "rowcount": 42450,
+      "schema": {
+        "fields": [
+          {
+            "format": "default",
+            "name": "Country",
+            "type": "string"
+          },
+          {
+            "format": "default",
+            "name": "Indicator",
+            "type": "string"
+          },
+          {
+            "format": "default",
+            "name": "Year",
+            "type": "year"
+          },
+          {
+            "format": "default",
+            "name": "Value",
+            "type": "number"
+          }
+        ],
+        "missingValues": [
+          ""
+        ]
+      },
+      "signed": true
+    },
+    {
+      "bytes": 827378,
+      "datahub": {
+        "type": "derived/zip"
+      },
+      "description": "Compressed versions of dataset. Includes normalized CSV and JSON data with original data and datapackage.json.",
+      "dpp:streamedFrom": "/tmp/37.1mb-test.zip",
+      "format": "zip",
+      "name": "1mb-test_zip",
+      "path": "https://pkgstore.datahub.io/datahq/1mb-test/1mb-test_zip/data/1dfeb1e8be3c92455c0a31f1095e0bff/1mb-test_zip.zip",
+      "profile": "data-resource"
+    },
+    {
+      "bytes": 1190131,
+      "datahub": {
+        "derivedFrom": [
+          "1mb-test"
+        ],
+        "type": "derived/preview"
+      },
+      "delimiter": ",",
+      "dialect": {
+        "delimiter": ",",
+        "doubleQuote": true,
+        "lineTerminator": "\r\n",
+        "quoteChar": "\"",
+        "skipInitialSpace": false
+      },
+      "dpp:streamedFrom": "/tmp/tmp_6y6e07j/datahq/1mb-test/1mb-test_csv/data/920a2e7aac3c85a8a64999d6a1f5bf6b/1mb-test_csv.csv",
+      "encoding": "utf-8",
+      "forView": [
+        "datahub-preview-1mb-test_csv_preview"
+      ],
+      "format": "json",
+      "hash": "54fa0b38e2a47517513286b555f29094",
+      "mediatype": "text/csv",
+      "name": "1mb-test_csv_preview",
+      "path": "https://pkgstore.datahub.io/datahq/1mb-test/1mb-test_csv_preview/data/54fa0b38e2a47517513286b555f29094/1mb-test_csv_preview.json",
+      "pathType": "local",
+      "profile": "data-resource",
+      "quotechar": "\"",
+      "rowcount": 44450,
+      "schema": {
+        "fields": [
+          {
+            "format": "default",
+            "name": "Country",
+            "type": "string"
+          },
+          {
+            "format": "default",
+            "name": "Indicator",
+            "type": "string"
+          },
+          {
+            "format": "default",
+            "name": "Year",
+            "type": "year"
+          },
+          {
+            "decimalChar": ".",
+            "format": "default",
+            "groupChar": "",
+            "name": "Value",
+            "type": "number"
+          }
+        ],
+        "missingValues": [
+          ""
+        ]
+      },
+      "signed": true
+    },
+    {
+      "bytes": 1000554,
+      "datahub": {
+        "type": "source/tabular"
+      },
+      "delimiter": ",",
+      "dialect": {
+        "delimiter": ",",
+        "quoteChar": "\""
+      },
+      "dpp:streamedFrom": "https://s3.amazonaws.com/rawstore.datahub.io/920a2e7aac3c85a8a64999d6a1f5bf6b.csv",
+      "encoding": "ISO-8859-1",
+      "format": "csv",
+      "mediatype": "text/csv",
+      "name": "1mb-test",
+      "path": "https://pkgstore.datahub.io/datahq/1mb-test/1mb-test/archive/920a2e7aac3c85a8a64999d6a1f5bf6b/1mb-test.csv",
+      "pathType": "local",
+      "profile": "data-resource",
+      "quotechar": "\"",
+      "schema": {
+        "fields": [
+          {
+            "format": "default",
+            "name": "Country",
+            "type": "string"
+          },
+          {
+            "format": "default",
+            "name": "Indicator",
+            "type": "string"
+          },
+          {
+            "format": "default",
+            "name": "Year",
+            "type": "year"
+          },
+          {
+            "format": "default",
+            "name": "Value",
+            "type": "number"
+          }
+        ],
+        "missingValues": [
+          ""
+        ]
+      },
+      "signed": true
+    }
+  ],
+  "title": "1mb-test",
+  "views": [
+    {
+      "datahub": {
+        "type": "preview"
+      },
+      "name": "datahub-preview-1mb-test_csv_preview",
+      "resources": [
+        "1mb-test"
+      ],
+      "specType": "table",
+      "transform": {
+        "limit": 2000
+      }
+    }
+  ]
+}
